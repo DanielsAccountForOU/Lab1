@@ -88,16 +88,18 @@ void MyTime::output(ostream& outs){
 
 
 ostream& operator << (ostream& outs, const MyTime& t1){
-    outs << t1.hours << ':' << setw(2) << setfill('0') << t1.minutes;
+    t1.output(outs);
 	return outs;
 }
 
 istream& operator >> (istream& ins, MyTime& t1){
-	
-	char junk;
+	/*char junk;
 	ins >> t1.hours;
   	ins.get(junk);
 	ins >> t1.minutes;
 	t1.simplify();
+	return ins;*/
+	
+	t1.input(ins);
 	return ins;
 }

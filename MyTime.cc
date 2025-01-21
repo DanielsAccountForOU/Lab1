@@ -23,7 +23,7 @@ void MyTime::simplify(){
 	minutes = minutes%60;
 }
 
-MyTime operator + (const MyTime& t1, const MyTime& t2){
+MyTime operator + (const MyTime& t1){
 	MyTime tmp;
     tmp.hours = t1.hours + t2.hours;
 	tmp.minutes = t1.minutes + t2.minutes;

@@ -7,11 +7,6 @@
 using namespace std;
 
 // Constructors
-MyTime::MyTime(){
-	hours = 0;
-	minutes = 0;
-}
-
 MyTime::MyTime(int h, int m){
 	hours = h;
 	minutes = m;
@@ -98,6 +93,7 @@ ostream& operator << (ostream& outs, const MyTime& t1){
 }
 
 istream& operator >> (istream& ins, MyTime& t1){
+	
 	char junk;
 	ins >> t1.hours;
   	ins.get(junk);

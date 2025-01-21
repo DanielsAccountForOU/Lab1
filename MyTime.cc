@@ -89,7 +89,6 @@ void MyTime::output(ostream& outs){
 
 ostream& operator << (ostream& outs, const MyTime& t1){
     t1.output(outs);
-	return outs;
 }
 
 istream& operator >> (istream& ins, MyTime& t1){
@@ -101,5 +100,4 @@ istream& operator >> (istream& ins, MyTime& t1){
 	return ins;*/
 	
 	t1.input(ins);
-	return ins;
 }

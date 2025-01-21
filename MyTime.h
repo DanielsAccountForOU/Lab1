@@ -13,6 +13,18 @@ class MyTime
 
 		MyTime(int h = 0, int m = 0) : hours(h), minutes(m){} 
 
+		    void input(istream& ins) {
+        		char junk;
+		        ins >> hours;
+		        ins.get(junk);
+		        ins >> minutes;
+		        simplify();
+		    }
+
+		    void output(ostream& outs) const {
+		        outs << setfill('0') << setw(2) << hours << ":" << setfill('0') << setw(2) << minutes;
+		    }
+
 		// Member functions
 		void Reset(int h, int m);
 
@@ -33,9 +45,9 @@ class MyTime
 
 		friend MyTime operator / (const MyTime& t1, int num);
 
-		friend std::istream& operator >>(std::istream& ins, MyTime& t);
+		friend std::istream& operator >>(input(std::istream& ins), MyTime& t);
 		
-		friend std::ostream& operator <<(std::ostream& outs, const MyTime& t);
+		friend std::ostream& operator <<(output(std::ostream& outs), const MyTime& t);
 
 		friend bool operator == (const MyTime& t1, const MyTime& t2);
 

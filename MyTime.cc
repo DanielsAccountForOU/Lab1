@@ -79,10 +79,16 @@ void MyTime::input(istream& ins){
 	   Remove the friend keyword from the operator in the .h file and move the
 	   function prototype to after the class declaration.
 	*/
+	char junk;
+	ins >> hours;
+  	ins.get(junk);
+	ins >> minutes;
+	simplify();
 }
 
 void MyTime::output(ostream& outs){
 	/* Repeat what you did for input except using the code for the << operator */
+	outs << setfill('0') << setw(2) << hours << ':' << setfill('0') << setw(2) << minutes;
 }
 
 

@@ -48,3 +48,46 @@ class MyTime
 		int hours;        // hours can be > 24
 		int minutes;      // 0 <= minutes <= 59
  };
+
+MyTime operator + (const MyTime& t1, const MyTime& t2){
+	MyTime tmp;
+    tmp.hours = t1.hours + t2.hours;
+	tmp.minutes = t1.minutes + t2.minutes;
+	tmp.simplify();
+	return tmp;
+}
+
+MyTime operator - (const MyTime& t1, const MyTime& t2){
+	MyTime tmp;
+	tmp.minutes = abs((t1.hours * 60 + t1.minutes) - (t2.hours * 60 + t2.minutes));
+	tmp.simplify();
+	return tmp;
+}
+
+MyTime operator / (const MyTime& t1, int num){
+	MyTime tmp;
+	tmp.minutes = t1.hours * 60 + t1.minutes;
+	tmp.minutes /= num;
+	tmp.simplify();
+	return tmp;
+}
+
+MyTime operator * (const MyTime& t1, int num){
+	MyTime tmp;
+	tmp.minutes = t1.hours * 60 + t1.minutes;
+	tmp.minutes *= num;
+	tmp.simplify();
+	return tmp;
+}
+
+bool operator == (const MyTime& t1, const MyTime& t2){
+	return t1.hours == t2.hours && t1.minutes == t2.minutes;
+}
+
+bool operator < (const MyTime& t1, const MyTime& t2){
+	return (t1.hours * 60 + t1.minutes) < (t2.hours * 60 + t2.minutes);
+}
+
+bool operator <= (const MyTime& t1, const MyTime& t2){
+	return (t1.hours * 60 + t1.minutes) <= (t2.hours * 60 + t2.minutes);
+}
